@@ -1,1 +1,1 @@
-export { AuthlogicProvider, AuthlogicProviderProps } from './AuthlogicProvider'
+export { AuthLogicProvider, IAuthLogicProviderProps } from './AuthLogicProvider'
