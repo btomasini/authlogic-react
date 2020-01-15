@@ -34,6 +34,7 @@ describe('<AuthLogicProvider/>', () => {
   }
 
   beforeEach(async () => {
+
     const params = {
       clientId,
       issuer,
