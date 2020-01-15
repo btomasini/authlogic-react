@@ -33,7 +33,7 @@ export default {
     }),
     url(),
     svgr(),
-    resolve(),
+    //    resolve(),
     typescript({
       rollupCommonJSResolveHack: true,
       clean: true

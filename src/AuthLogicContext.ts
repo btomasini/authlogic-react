@@ -1,16 +1,18 @@
-import { IParams, ISecure } from '@authlogic/core';
+import { create, IParams, ISecure } from '@authlogic/core';
 import * as React from 'react';
 
 export interface IAuthLogicContextValue {
-  params?: IParams
-  secure?: ISecure
+  error?: Error
+  secure: ISecure
 }
 
 let authLogicContext: React.Context<IAuthLogicContextValue>;
 
-export function getAuthLogicContext(): React.Context<IAuthLogicContextValue> {
+export function getAuthLogicContext(params: IParams): React.Context<IAuthLogicContextValue> {
   if (!authLogicContext) {
-    authLogicContext = React.createContext<IAuthLogicContextValue>({});
+    authLogicContext = React.createContext<IAuthLogicContextValue>({
+      secure: create(params)
+    });
   }
   return authLogicContext;
 }
