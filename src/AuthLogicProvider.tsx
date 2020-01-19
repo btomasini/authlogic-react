@@ -19,8 +19,7 @@ export const AuthLogicProvider = (props: IAuthLogicProviderProps) => {
 
   const loadSecure = async () => {
     // TODO We can combine these back into one if we want
-    const secure = create()
-    secure.init(params)
+    const secure = create(params)
     try {
       await secure.secure()
       setState({
