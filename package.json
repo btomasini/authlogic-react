@@ -26,7 +26,7 @@
     "lint": "tslint -p tsconfig.json"
   },
   "dependencies": {
-    "@authlogic/core": "^0.6.0",
+    "@authlogic/core": "^0.6.1",
     "ts-invariant": "^0.4.4"
   },
   "peerDependencies": {
