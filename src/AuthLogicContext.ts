@@ -1,15 +1,18 @@
 import { ISecure } from '@authlogic/core';
 import * as React from 'react';
-import invariant from 'ts-invariant';
+import { Optional } from './Lang';
 
-let authLogicContext: React.Context<ISecure>
-
-export function createAuthLogicContext(secure: ISecure): React.Context<ISecure> {
-  authLogicContext = React.createContext<ISecure>(secure)
-  return authLogicContext
+export interface IAuthLogicContextValue {
+  secure: Optional<ISecure>
 }
 
-export function getAuthLogicContext(): React.Context<ISecure> {
-  invariant(authLogicContext, "AuthLogicContext not created, be sure your component is wrapped in AuthLogicProvider")
+let authLogicContext: React.Context<IAuthLogicContextValue>
+
+export function getAuthLogicContext(): React.Context<IAuthLogicContextValue> {
+  if (!authLogicContext) {
+    authLogicContext = React.createContext<IAuthLogicContextValue>({
+      secure: undefined
+    })
+  }
   return authLogicContext
 }

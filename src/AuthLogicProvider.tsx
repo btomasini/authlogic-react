@@ -1,10 +1,10 @@
 import { create, IParams, ISecure } from '@authlogic/core';
 import * as React from 'react';
-import { createAuthLogicContext } from './AuthLogicContext';
+import { getAuthLogicContext } from './AuthLogicContext';
 
 export interface IAuthLogicProviderProps {
-  params: IParams;
   children: React.ReactNode | React.ReactNode[] | null;
+  params: IParams;
 }
 
 interface IAuthLogicState {
@@ -19,7 +19,8 @@ export const AuthLogicProvider = (props: IAuthLogicProviderProps) => {
 
   const loadSecure = async () => {
     // TODO We can combine these back into one if we want
-    const secure = create(params)
+    const secure = create()
+    secure.init(params)
     try {
       await secure.secure()
       setState({
@@ -40,9 +41,9 @@ export const AuthLogicProvider = (props: IAuthLogicProviderProps) => {
   if (state.error) {
     return (<p>Error: {state.error.message}</p>)
   } else if (state.secure && state.secure.getAuthentication()) {
-    const AuthLogicContext = createAuthLogicContext(state.secure!)
+    const AuthLogicContext = getAuthLogicContext()
     return (
-      <AuthLogicContext.Provider value={state.secure}>
+      <AuthLogicContext.Provider value={{ secure: state.secure }}>
         {children}
       </AuthLogicContext.Provider>
     );
