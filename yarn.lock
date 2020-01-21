@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@authlogic/core@^0.8.1":
-  version "0.8.1"
-  resolved "https://registry.yarnpkg.com/@authlogic/core/-/core-0.8.1.tgz#2b9d9fa9169957a786371ee3fb859665a60cbad5"
-  integrity sha512-HDepcqrBZYftS6EdV1+VyI9EPNYGpr/FIiEdROs4gpJF1hviBW4kYfs7XLb6olcQ6qBURXuIU2BKnaNTZIclqQ==
+"@authlogic/core@^0.8.2":
+  version "0.8.2"
+  resolved "https://registry.yarnpkg.com/@authlogic/core/-/core-0.8.2.tgz#b9f141981aec5a5b50546556322227e9dd827a04"
+  integrity sha512-D2trK0Sin4sarhC2zS/5Isc5WOwOmqyG98JWCg64vbo7U4vlDqnw9SMBHmUlJahXJXe6pMit1xNSTjvvg1NjCg==
   dependencies:
     "@types/crypto-js" "^3.1.43"
     "@types/randombytes" "^2.0.0"
