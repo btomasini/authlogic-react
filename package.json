@@ -1,6 +1,6 @@
 {
   "name": "@authlogic/react",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "Authlogic React Component",
   "author": "btomasini",
   "license": "MIT",
@@ -30,9 +30,9 @@
     "ts-invariant": "^0.4.4"
   },
   "peerDependencies": {
+    "prop-types": "^15.5.4",
     "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "prop-types": "^15.5.4"
+    "react-dom": "^16.12.0"
   },
   "devDependencies": {
     "@rollup/plugin-json": "^4.0.1",
