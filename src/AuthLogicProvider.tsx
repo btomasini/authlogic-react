@@ -2,8 +2,14 @@ import { create, IParams, ISecure } from '@authlogic/core';
 import * as React from 'react';
 import { getAuthLogicContext } from './AuthLogicContext';
 
+interface IErrorProps {
+  error: Error
+}
+
 export interface IAuthLogicProviderProps {
   children: React.ReactNode | React.ReactNode[] | null;
+  errorNode?: (props: IErrorProps) => JSX.Element;
+  loadingNode?: React.ReactNode | null;
   params: IParams;
 }
 
@@ -39,7 +45,11 @@ export const AuthLogicProvider = (props: IAuthLogicProviderProps) => {
 
 
   if (state.error) {
-    return (<p>Error: {state.error.message}</p>)
+    if (props.errorNode) {
+      return (<props.errorNode error={state.error} />)
+    } else {
+      return (<p>Error: {state.error.message}</p>)
+    }
   } else if (state.secure && state.secure.getAuthentication()) {
     const AuthLogicContext = getAuthLogicContext()
     return (
@@ -48,7 +58,11 @@ export const AuthLogicProvider = (props: IAuthLogicProviderProps) => {
       </AuthLogicContext.Provider>
     );
   } else {
-    return (<p>Loading {params.clientId}</p>)
+    if (props.loadingNode) {
+      return (<div>{props.loadingNode}</div>);
+    } else {
+      return (<p>Loading...</p>)
+    }
   }
 
 };
