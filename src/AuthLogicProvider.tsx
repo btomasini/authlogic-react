@@ -2,7 +2,7 @@ import { create, IParams, ISecure } from '@authlogic/core';
 import * as React from 'react';
 import { getAuthLogicContext } from './AuthLogicContext';
 
-interface IErrorProps {
+export interface IErrorProps {
   error: Error
 }
 
