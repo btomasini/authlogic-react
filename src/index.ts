@@ -1,2 +1,2 @@
-export { AuthLogicProvider, IAuthLogicProviderProps } from './AuthLogicProvider'
+export { AuthLogicProvider, IAuthLogicProviderProps, IErrorProps } from './AuthLogicProvider'
 export { getAuthLogicContext } from './AuthLogicContext'
